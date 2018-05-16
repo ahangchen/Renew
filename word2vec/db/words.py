@@ -5,7 +5,7 @@ from word2vec.models import Word, Usr
 
 def save_new_word(word, meaning, usr_id):
     Usr.objects.update_or_create(id=usr_id)
-    Word.objects.update_or_create(word=word, meaning=meaning, user_id=usr_id, review_cnt=0)
+    Word.objects.update_or_create(word=word,  user_id=usr_id, defaults={'meaning': meaning, 'review_cnt': 0})
 
 
 def review_words():
